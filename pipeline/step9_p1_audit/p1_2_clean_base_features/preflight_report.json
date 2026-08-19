@@ -1,0 +1,15 @@
+{
+  "status": "pending_gpu_feature_generation",
+  "output_dir": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features",
+  "created_files": {
+    "split_manifest": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\split_manifest.json",
+    "feature_contract": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\feature_contract.json"
+  },
+  "missing_final_outputs": [
+    "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\fast_holdout_features.parquet",
+    "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\train_oof_features.parquet",
+    "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\dev_features.parquet",
+    "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\manifest.json"
+  ],
+  "next_gpu_notebook": "task1/pipeline/step9_p1_audit/kaggle_p1_2_generate_clean_base_features_gpu.ipynb"
+}

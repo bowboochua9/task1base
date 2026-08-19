@@ -1,0 +1,71 @@
+{
+  "status": "contract_only_not_final_manifest",
+  "final_manifest_name": "manifest.json",
+  "final_manifest_rule": "Only the GPU/merge job that writes all required parquet artifacts may create manifest.json with status=ok.",
+  "required_outputs": {
+    "fast_holdout_features.parquet": {
+      "scope": "Features for the 1000 fast-holdout stacker-train queries, produced by base models trained on the disjoint 5000-query base-train split.",
+      "required_columns": [
+        "query_id",
+        "doc_id",
+        "label",
+        "source_split",
+        "feature_protocol",
+        "step4_rank",
+        "step5_oof_rank",
+        "step5_oof_score",
+        "step6_oof_rank",
+        "step6_oof_score"
+      ]
+    },
+    "train_oof_features.parquet": {
+      "scope": "OOF features for all 6000 canonical-train queries; learned branch features for each query must come from a checkpoint that did not train on that query.",
+      "required_columns": [
+        "query_id",
+        "doc_id",
+        "label",
+        "fold",
+        "source_split",
+        "feature_protocol",
+        "step4_rank",
+        "step5_oof_rank",
+        "step5_oof_score",
+        "step6_oof_rank",
+        "step6_oof_score"
+      ]
+    },
+    "dev_features.parquet": {
+      "scope": "Canonical dev features. Dev labels may be included for final evaluation only, never for model or config selection.",
+      "required_columns": [
+        "query_id",
+        "doc_id",
+        "label",
+        "source_split",
+        "feature_protocol",
+        "step4_rank",
+        "step5_fulltrain_rank",
+        "step5_fulltrain_score",
+        "step6_fulltrain_rank",
+        "step6_fulltrain_score"
+      ]
+    },
+    "manifest.json": {
+      "scope": "Final provenance manifest for the three parquet artifacts.",
+      "required_fields": [
+        "status",
+        "protocol",
+        "created_by_notebook",
+        "input_paths",
+        "output_paths",
+        "checksums",
+        "model_manifests",
+        "leakage_guards"
+      ]
+    }
+  },
+  "rejected_inputs": [
+    "task1/pipeline/step5/step5/rankings/train_rankings_step5_fused.jsonl as learned Step5 train feature, because it is in-sample for canonical train.",
+    "Any Step6 train ranking produced by a reranker checkpoint trained on the same query.",
+    "Any artifact from DSC2026_baseline for final compliant P1.2, because P1.0 is blocked and split differs."
+  ]
+}

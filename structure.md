@@ -310,7 +310,7 @@ P1.2 clean base-feature prep local hiện có:
 
 ```text
 task1/pipeline/step9_p1_audit/p1_2_tools.py
-task1/pipeline/step9_p1_audit/kaggle_p1_2_generate_clean_base_features_gpu.ipynb
+task1/pipeline/step9_p1_audit/kaggle_p1_2_generate_clean_base_features_gpu_v6_kaggle_resume.ipynb
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/split_manifest.json
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/feature_contract.json
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/preflight_report.json
@@ -322,7 +322,7 @@ task1/pipeline/step9_p1_audit/p1_2_step3_train_rankings_input.zip
 task1/pipeline/step9_p1_audit/p1_2_step3_train_rankings_input_manifest.json
 ```
 
-`kaggle_p1_2_generate_clean_base_features_gpu.ipynb` hiện là GPU phase-run
+`kaggle_p1_2_generate_clean_base_features_gpu_v6_kaggle_resume.ipynb` hiện là GPU phase-run
 implementation cho `fast`, `oof_fold`, `fulltrain_dev`, `merge`; notebook
 `.ipynb` chứa code trực tiếp trong cell và kiểm tra đủ dataset input trước khi
 tải HuggingFace model. CPU local maintenance dùng

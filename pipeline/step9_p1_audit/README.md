@@ -240,7 +240,7 @@ task1/pipeline/step9_p1_audit/p1_2_clean_base_features/preflight_report.json
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/merge_validation_report.json
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/gpu_notebook_static_audit_report.json
 task1/pipeline/step9_p1_audit/p1_2_clean_base_features/input_zip_manifest.json
-task1/pipeline/step9_p1_audit/p1_2_clean_base_features_input.zip
+task1/pipeline/step9_p1_audit/p1_2_merged_input.zip
 ```
 
 `p1_2_tools.py validate-merge` đã chạy local và đang trả
@@ -259,7 +259,7 @@ parts/dev_features.parquet
 Notebook GPU hiện có:
 
 ```text
-task1/pipeline/step9_p1_audit/kaggle_p1_2_generate_clean_base_features_gpu.ipynb
+task1/pipeline/step9_p1_audit/kaggle_p1_2_generate_clean_base_features_gpu_v6_kaggle_resume.ipynb
 ```
 
 Trạng thái notebook này: phase-run implementation đã validate được bằng
@@ -290,9 +290,8 @@ forbidden external/in-sample pattern hits = []
 Manifest/contract input ZIP đã đóng gói để upload Kaggle Dataset:
 
 ```text
-zip = task1/pipeline/step9_p1_audit/p1_2_clean_base_features_input.zip
-sha256 = 8c73a3561345790ae258de9b554e6ff9dd089982e059a08707056c5f69ec757e
-current Kaggle location = /kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_clean_base_features_input
+zip = task1/pipeline/step9_p1_audit/p1_2_merged_input.zip
+current Kaggle location = /kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_merged_input
 ```
 
 ZIP namelist bắt buộc:
@@ -307,8 +306,8 @@ gpu_notebook_static_audit_report.json
 Notebook mặc định đọc:
 
 ```text
-P1_2_MANIFEST_ROOT=/kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_clean_base_features_input
-P1_2_TRAIN_RANKINGS_PATH=/kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_step3_train_rankings_input/step3/outputs/rankings/train_rankings_best.jsonl
+P1_2_MANIFEST_ROOT=/kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_merged_input
+P1_2_TRAIN_RANKINGS_PATH=/kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_merged_input/step3/outputs/rankings/train_rankings_best.jsonl
 ```
 
 `P1_2_TRAIN_RANKINGS_PATH` phải trỏ tới full canonical-train Step3/BM25
@@ -317,19 +316,7 @@ rankings. Local source chuẩn là
 unique train qids. Không dùng partial
 `stnhdscduaiti26/step4/train_rankings_best.jsonl` cho P1.2 full.
 
-Prepared update ZIP:
-
-```text
-task1/pipeline/step9_p1_audit/p1_2_step3_train_rankings_input.zip
-sha256=1cd32d6d2e8c3827328801801aa44eb0fee34067c81c3fe16537a66c67fe1eb9
-namelist=[step3/outputs/rankings/train_rankings_best.jsonl]
-```
-
-Kaggle path thực tế sau upload vào dataset chính có thêm tầng ngoài:
-
-```text
-/kaggle/input/datasets/bowboochua9/stnhdscduaiti26/p1_2_step3_train_rankings_input/step3/outputs/rankings/train_rankings_best.jsonl
-```
+Các file đã được gộp chung trong `p1_2_merged_input.zip` và upload lên dataset chính.
 
 Base model input:
 

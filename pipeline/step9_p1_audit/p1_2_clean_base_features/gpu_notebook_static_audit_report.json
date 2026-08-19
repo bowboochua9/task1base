@@ -1,0 +1,40 @@
+{
+  "feature_contract": {
+    "required_outputs": [
+      "dev_features.parquet",
+      "fast_holdout_features.parquet",
+      "manifest.json",
+      "train_oof_features.parquet"
+    ],
+    "status": "contract_only_not_final_manifest"
+  },
+  "notebook": {
+    "forbidden_pattern_hits": [],
+    "ipynb_cells": 14,
+    "ipynb_cells_have_ids": true,
+    "required_phases": [
+      "fast",
+      "fulltrain_dev",
+      "merge",
+      "oof_fold"
+    ]
+  },
+  "paths": {
+    "dev_split": "D:\\ds\\dscuit2026\\task1\\pipeline\\step1\\outputs\\dev_split.json",
+    "feature_contract": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\feature_contract.json",
+    "notebook": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\kaggle_p1_2_generate_clean_base_features_gpu.ipynb",
+    "split_manifest": "D:\\ds\\dscuit2026\\task1\\pipeline\\step9_p1_audit\\p1_2_clean_base_features\\split_manifest.json",
+    "train_split": "D:\\ds\\dscuit2026\\task1\\pipeline\\step1\\outputs\\train_split.json"
+  },
+  "purpose": "Static audit for P1.2 GPU notebook before Kaggle GPU execution.",
+  "remaining_runtime_requirement": "Run GPU phases on Kaggle T4x2; local static audit does not prove GPU runtime success.",
+  "split_protocol": {
+    "canonical_dev_queries": 1000,
+    "canonical_train_queries": 6000,
+    "fast_base_queries": 5000,
+    "fast_stacker_queries": 1000,
+    "oof_folds": 5,
+    "oof_heldout_total": 6000
+  },
+  "status": "ok"
+}
